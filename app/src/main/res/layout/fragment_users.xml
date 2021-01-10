@@ -40,5 +40,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/users_subheading_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/users_subheading_tv"
+        tools:listitem="@layout/users_list_template"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
