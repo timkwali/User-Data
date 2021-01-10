@@ -22,10 +22,10 @@ class UsersListRVAdapter(private var usersList: List<User>, var listener: OnItem
 //            this.mUser = user
             binding.apply {
 //                Picasso.get().load(user.avatar).into(userTemplateAvatarIv)
-                Glide.with(userTemplateAvatarIv.context)
-                        .load(File(user.avatar))
-                        .into(userTemplateAvatarIv)
-                
+//                Glide.with(userTemplateAvatarIv.context)
+//                        .load(File(user.avatar))
+//                        .into(userTemplateAvatarIv)
+
 //                Glide.with(holder.imageView.getContext())
 //                        .load(new File(hotel.imageId2))
 //                        .into(holder.imageView);

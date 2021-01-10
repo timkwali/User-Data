@@ -6,4 +6,9 @@
     <string name="a_list_of_users">A List Of Users</string>
     <string name="user_full_name">User Full Name</string>
     <string name="date_created">Date Created</string>
+    <string name="gender">Gender</string>
+    <string name="countries">Countries</string>
+    <string name="colors">Colors</string>
+    <string name="users">Users</string>
+    <string name="cars">Cars</string>
 </resources>
