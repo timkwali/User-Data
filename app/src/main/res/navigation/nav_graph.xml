@@ -10,4 +10,9 @@
         android:name="com.example.timringtimkwali.ui.users.UsersFragment"
         android:label="fragment_users"
         tools:layout="@layout/fragment_users" />
+    <fragment
+        android:id="@+id/userDetailsFragment"
+        android:name="com.example.timringtimkwali.ui.userdetails.UserDetailsFragment"
+        android:label="fragment_user_details"
+        tools:layout="@layout/fragment_user_details" />
 </navigation>

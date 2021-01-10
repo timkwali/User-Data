@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.timringtimkwali.R
 import com.example.timringtimkwali.adapters.OnItemClick
@@ -46,7 +47,7 @@ class UsersFragment : Fragment(), OnItemClick {
     }
 
     override fun onItemClick(item: User, position: Int) {
-        Toast.makeText(this.context, "$position", Toast.LENGTH_SHORT).show()
+        findNavController().navigate(R.id.userDetailsFragment)
     }
 
     val list = listOf<String>("one", "two", "three")
