@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:id="@+id/drawer_layout"
+    tools:openDrawer="start">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
@@ -16,7 +18,7 @@
             android:background="@color/white"
             android:scaleType="centerCrop"
             android:src="@drawable/menu"
-            android:elevation="2dp"
+            android:elevation="5dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="10dp"
             app:shapeAppearanceOverlay="@style/curved_image"
@@ -32,6 +34,7 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_graph"
+        android:elevation="-1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -39,13 +42,42 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/mani_navigation_navVw"
+        android:id="@+id/main_navigation_navVw"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="false"
-        app:menu="@menu/drawer_menu">
+        app:menu="@menu/drawer_menu"
+        android:elevation="5dp">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_closeDrawer_iv"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/ic_close"
+                android:background="@color/white"
+                android:scaleType="centerCrop"
+                android:elevation="5dp"
+                app:shapeAppearanceOverlay="@style/curved_image"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_drawerLogo_iv"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/t_logo"
+                android:scaleType="centerCrop"
+                android:layout_margin="5dp"
+                app:shapeAppearanceOverlay="@style/curved_image"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.navigation.NavigationView>
-
 </androidx.drawerlayout.widget.DrawerLayout>
