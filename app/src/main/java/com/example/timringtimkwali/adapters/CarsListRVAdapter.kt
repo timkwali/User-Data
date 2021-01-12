@@ -3,25 +3,28 @@ package com.example.timringtimkwali.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.timringtimkwali.databinding.CarsListTemplateBinding
-import com.example.timringtimkwali.model.Car
+import com.example.timringtimkwali.databinding.CarsFilterTemplateBinding
+import com.example.timringtimkwali.model.CarFilter
 
-class CarsListRVAdapter(private var carsList: List<Car>):
+class CarsListRVAdapter(private var carsList: List<CarFilter>):
     RecyclerView.Adapter<CarsListRVAdapter.CarsListViewHolder>() {
 
-    inner class CarsListViewHolder(private val binding: CarsListTemplateBinding):
+    inner class CarsListViewHolder(private val binding: CarsFilterTemplateBinding):
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(car: Car) {
+        fun bind(car: CarFilter) {
             binding.apply {
-                carsCarDetailsTv.text = car.carDetails
                 carsSerialNumberTv.text = (adapterPosition + 1).toString()
+                carsModelValueTv.text = car.carModel
+                carsYearValueTv.text = car.year
+                carsColorValueTv.text = car.color
+                carsCountryValueTv.text = car.country
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarsListViewHolder {
-        val binding = CarsListTemplateBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = CarsFilterTemplateBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return CarsListViewHolder(binding)
     }
 

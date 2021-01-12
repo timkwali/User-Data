@@ -13,5 +13,11 @@
     <string name="a_list_of_cars">A List Of Cars</string>
     <string name="filters">Filters</string>
     <string name="_1">1</string>
-    <string name="car_details">Car Details</string>
+    <string name="car_details">Car Details: </string>
+    <string name="car_model">Car Model:</string>
+    <string name="year">Year:</string>
+    <string name="color">Color:</string>
+    <string name="country">Country:</string>
+    <string name="serial_number">Serial Number</string>
+    <string name="value">value</string>
 </resources>

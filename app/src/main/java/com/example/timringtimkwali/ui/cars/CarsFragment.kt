@@ -5,13 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.timringtimkwali.R
 import com.example.timringtimkwali.adapters.CarsListRVAdapter
-import com.example.timringtimkwali.adapters.UsersListRVAdapter
 import com.example.timringtimkwali.databinding.FragmentCarsBinding
-import com.example.timringtimkwali.model.Car
+import com.example.timringtimkwali.model.CarFilter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -32,21 +29,31 @@ class CarsFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        adapter = CarsListRVAdapter(carsList)
+        adapter = CarsListRVAdapter(carFilterList)
         val carsListRV = binding?.carsCarsListRv
         carsListRV?.adapter = adapter
         carsListRV?.layoutManager = LinearLayoutManager(this.context)
         carsListRV?.setHasFixedSize(true)
     }
 
-    private val carsList = listOf<Car>(
-        Car(" Car Model: Tesla g6 \n Year: 2019 \n Colour: Purple \n Country: Japan",),
-        Car(" Car Model: Tesla g6 \n Year: 2019 \n Colour: Purple \n Country: Japan",),
-        Car(" Car Model: Tesla g6 \n Year: 2019 \n Colour: Purple \n Country: Japan",),
-        Car(" Car Model: Tesla g6 \n Year: 2019 \n Colour: Purple \n Country: Japan",),
-        Car(" Car Model: Tesla g6 \n Year: 2019 \n Colour: Purple \n Country: Japan",),
-        Car(" Car Model: Tesla g6 \n Year: 2019 \n Colour: Purple \n Country: Japan",),
-        Car(" Car Model: Tesla g6 \n Year: 2019 \n Colour: Purple \n Country: Japan",),
-        Car(" Car Model: Tesla g6 \n Year: 2019 \n Colour: Purple \n Country: Japan",),
+    private val carsOwnerFilterList = listOf<CarFilter>(
+
     )
+
+    private val carFilterList = listOf<CarFilter>(
+        CarFilter("Tesla g6", "2019", "Pink", "Janpan"),
+        CarFilter("Tesla g6", "2019", "Pink", "Janpan"),
+        CarFilter("Tesla g6", "2019", "Pink", "Janpan"),
+        CarFilter("Tesla g6", "2019", "Pink", "Janpan"),
+        CarFilter("Tesla g6", "2019", "Pink", "Janpan"),
+        CarFilter("Tesla g6", "2019", "Pink", "Janpan"),
+        CarFilter("Tesla g6", "2019", "Pink", "Janpan"),
+        CarFilter("Tesla g6", "2019", "Pink", "Janpan"),
+        CarFilter("Tesla g6", "2019", "Pink", "Janpan"),
+        CarFilter("Tesla g6", "2019", "Pink", "Janpan"),
+        CarFilter("Tesla g6", "2019", "Pink", "Janpan"),
+    )
+
+    private val maleFilterList = listOf<CarFilter>()
+    private val femaleFilterList = listOf<CarFilter>()
 }
