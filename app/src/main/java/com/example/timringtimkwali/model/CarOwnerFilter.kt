@@ -1,4 +1,10 @@
 package com.example.timringtimkwali.model
 
-class CarOwnerFilter {
-}
+data class CarOwnerFilter (
+    val owner: String,
+    val carModel: String,
+    val gender: String,
+    val email: String,
+    val jobTitle: String,
+    val bio: String
+)

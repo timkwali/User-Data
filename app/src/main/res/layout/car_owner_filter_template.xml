@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginVertical="5dp"
+    android:paddingVertical="5dp"
+    android:paddingHorizontal="10dp"
+    android:background="@drawable/orange_border_bg">
+    <TextView
+        android:id="@+id/owner_serialNumber_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/graphit_bold"
+        android:text="@string/serial_number"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/owner_carOwner_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/graphit_bold"
+        android:text="@string/car_owner"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:paddingEnd="5dp"
+        android:textAllCaps="true"
+        app:layout_constraintTop_toBottomOf="@id/owner_serialNumber_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.848" />
+    <TextView
+        android:id="@+id/owner_ownerValue_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/value"
+        android:fontFamily="@font/graphit_regular"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/owner_carOwner_tv"
+        app:layout_constraintTop_toBottomOf="@id/owner_serialNumber_tv" />
+
+    <TextView
+        android:id="@+id/owner_carModel_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/graphit_bold"
+        android:gravity="start|top"
+        android:text="@string/car_model"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textAllCaps="true"
+        android:paddingEnd="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/owner_carOwner_tv" />
+
+    <TextView
+        android:id="@+id/owner_modelValue_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/graphit_regular"
+        android:text="@string/value"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@id/owner_carModel_tv"
+        app:layout_constraintTop_toBottomOf="@id/owner_ownerValue_tv" />
+
+    <TextView
+        android:id="@+id/cars_carColor_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/graphit_bold"
+        android:gravity="start|top"
+        android:text="@string/gender_"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textAllCaps="true"
+        android:paddingEnd="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/owner_carModel_tv"/>
+
+    <TextView
+        android:id="@+id/cars_colorValue_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/graphit_regular"
+        android:text="@string/value"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/cars_carColor_tv"
+        app:layout_constraintTop_toBottomOf="@id/owner_modelValue_tv" />
+
+    <TextView
+        android:id="@+id/owner_email_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/graphit_bold"
+        android:gravity="start|top"
+        android:paddingEnd="5dp"
+        android:text="@string/email"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cars_carColor_tv" />
+
+    <TextView
+        android:id="@+id/owner_emailValue_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/graphit_regular"
+        android:text="@string/value"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@id/owner_email_tv"
+        app:layout_constraintTop_toBottomOf="@+id/cars_colorValue_tv" />
+
+    <TextView
+        android:id="@+id/owner_jobTitle_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/graphit_bold"
+        android:text="@string/job_title"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textAllCaps="true"
+        android:paddingEnd="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/owner_email_tv" />
+
+    <TextView
+        android:id="@+id/owner_jobValue_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/graphit_regular"
+        android:text="@string/value"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/owner_jobTitle_tv"
+        app:layout_constraintTop_toBottomOf="@+id/owner_emailValue_tv" />
+
+    <TextView
+        android:id="@+id/owner_bio_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/graphit_bold"
+        android:text="@string/bio"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:paddingEnd="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/owner_jobTitle_tv" />
+
+    <TextView
+        android:id="@+id/owner_bioValue_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/graphit_regular"
+        android:text="@string/value"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/owner_bio_tv"
+        app:layout_constraintTop_toBottomOf="@+id/owner_jobValue_tv" />
+</androidx.constraintlayout.widget.ConstraintLayout>
