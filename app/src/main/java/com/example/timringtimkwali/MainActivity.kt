@@ -7,7 +7,9 @@ import androidx.core.view.GravityCompat
 import androidx.navigation.findNavController
 import com.example.timringtimkwali.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -38,7 +40,7 @@ class MainActivity : AppCompatActivity() {
             val navController = findNavController(R.id.main_fragmentContainer_frg)
             when(it.itemId) {
                 R.id.actionUsers -> navController.navigate(R.id.usersFragment)
-                R.id.actionCars -> Toast.makeText(this, "Go to cars fragment", Toast.LENGTH_SHORT).show()
+                R.id.actionCars -> navController.navigate(R.id.carsFragment)
             }
 
             it.isChecked = true

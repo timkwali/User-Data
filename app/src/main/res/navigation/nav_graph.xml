@@ -15,4 +15,9 @@
         android:name="com.example.timringtimkwali.ui.userdetails.UserDetailsFragment"
         android:label="fragment_user_details"
         tools:layout="@layout/fragment_user_details" />
+    <fragment
+        android:id="@+id/carsFragment"
+        android:name="com.example.timringtimkwali.ui.cars.CarsFragment"
+        android:label="fragment_cars"
+        tools:layout="@layout/fragment_cars" />
 </navigation>
