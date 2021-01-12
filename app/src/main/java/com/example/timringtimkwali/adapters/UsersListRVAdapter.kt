@@ -4,31 +4,29 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.timringtimkwali.databinding.FragmentUsersBinding
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.example.timringtimkwali.R
 import com.example.timringtimkwali.databinding.UsersListTemplateBinding
 import com.example.timringtimkwali.model.User
-import com.squareup.picasso.Picasso
-import java.io.File
 
 class UsersListRVAdapter(private var usersList: List<User>, var listener: OnItemClick):
         RecyclerView.Adapter<UsersListRVAdapter.UsersListViewHolder>() {
 
+
     inner class UsersListViewHolder(private val binding: UsersListTemplateBinding):
             RecyclerView.ViewHolder(binding.root) {
 
-//        private lateinit var mUser: User
-
         fun bind(user: User, action: OnItemClick) {
-//            this.mUser = user
             binding.apply {
 //                Picasso.get().load(user.avatar).into(userTemplateAvatarIv)
-//                Glide.with(userTemplateAvatarIv.context)
-//                        .load(File(user.avatar))
-//                        .into(userTemplateAvatarIv)
 
-//                Glide.with(holder.imageView.getContext())
-//                        .load(new File(hotel.imageId2))
-//                        .into(holder.imageView);
+                Glide.with(itemView)
+                    .load(user.avatar)
+                    .centerCrop()
+                    .transition(DrawableTransitionOptions.withCrossFade())
+                    .error(R.drawable.ic_person)
+                    .into(userTemplateAvatarIv)
+
                 userTemplateFullNameTv.text = user.fullName
                 userTemplateDateTv.text = user.createdAt
             }

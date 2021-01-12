@@ -10,4 +10,8 @@
     <string name="countries">Countries</string>
     <string name="colors">Colors</string>
     <string name="cars">Cars</string>
+    <string name="a_list_of_cars">A List Of Cars</string>
+    <string name="filters">Filters</string>
+    <string name="_1">1</string>
+    <string name="car_details">Car Details</string>
 </resources>
