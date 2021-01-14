@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="5dp"
+    android:paddingVertical="5dp"
+    android:paddingHorizontal="10dp"
+    android:background="@drawable/orange_border_bg">
+
+    <TextView
+        android:id="@+id/cars_serialNumber_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/graphit_bold"
+        android:text="@string/serial_number"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/cars_carModel_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/graphit_bold"
+        android:text="@string/car_model"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:paddingEnd="5dp"
+        android:textAllCaps="true"
+        app:layout_constraintTop_toBottomOf="@id/cars_serialNumber_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.848" />
+    <TextView
+        android:id="@+id/cars_modelValue_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/value"
+        android:fontFamily="@font/graphit_regular"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/cars_carModel_tv"
+        app:layout_constraintTop_toTopOf="@+id/cars_carModel_tv" />
+
+    <TextView
+        android:id="@+id/cars_carYear_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/graphit_bold"
+        android:gravity="start|top"
+        android:text="@string/year"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textAllCaps="true"
+        android:paddingEnd="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cars_carModel_tv"
+        app:layout_constraintVertical_bias="0.848" />
+
+    <TextView
+        android:id="@+id/cars_yearValue_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/graphit_regular"
+        android:text="@string/value"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/cars_carYear_tv"
+        app:layout_constraintTop_toBottomOf="@+id/cars_modelValue_tv" />
+
+    <TextView
+        android:id="@+id/cars_carColor_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/graphit_bold"
+        android:gravity="start|top"
+        android:text="@string/color"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textAllCaps="true"
+        android:paddingEnd="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cars_carYear_tv"
+        app:layout_constraintVertical_bias="0.848" />
+
+    <TextView
+        android:id="@+id/cars_colorValue_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/graphit_regular"
+        android:text="@string/value"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/cars_carColor_tv"
+        app:layout_constraintTop_toBottomOf="@+id/cars_yearValue_tv" />
+
+    <TextView
+        android:id="@+id/cars_carCountry_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/graphit_bold"
+        android:gravity="start|top"
+        android:text="@string/country"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textAllCaps="true"
+        android:paddingEnd="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cars_carColor_tv"
+        app:layout_constraintVertical_bias="0.848" />
+
+    <TextView
+        android:id="@+id/cars_countryValue_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/graphit_regular"
+        android:text="@string/value"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/cars_carCountry_tv"
+        app:layout_constraintTop_toBottomOf="@+id/cars_colorValue_tv" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

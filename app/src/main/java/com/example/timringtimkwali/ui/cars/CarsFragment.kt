@@ -5,13 +5,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
+import android.widget.Adapter
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.timringtimkwali.R
+import com.example.timringtimkwali.adapters.CarOwnersListRVAdapter
 import com.example.timringtimkwali.adapters.CarsListRVAdapter
-import com.example.timringtimkwali.adapters.UsersListRVAdapter
+import com.example.timringtimkwali.adapters.GenderListRVAdapter
+import com.example.timringtimkwali.data.CarsFile
 import com.example.timringtimkwali.databinding.FragmentCarsBinding
-import com.example.timringtimkwali.model.Car
+import com.example.timringtimkwali.model.CarFilter
+import com.example.timringtimkwali.model.CarOwnerFilter
+import com.example.timringtimkwali.model.GenderFilter
+import com.example.timringtimkwali.viewmodel.CarsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,8 +24,14 @@ class CarsFragment : Fragment() {
 
     private var _binding: FragmentCarsBinding? = null
     private val binding get() = _binding
-
-    private lateinit var adapter: CarsListRVAdapter
+    private lateinit var carsViewModel: CarsViewModel
+    private var filter: String = "owners"
+    private lateinit var carsAdapter: CarsListRVAdapter
+    private lateinit var ownersAdapter: CarOwnersListRVAdapter
+    private lateinit var genderAdapter: GenderListRVAdapter
+    private lateinit var carFilterList: List<CarFilter>
+    private lateinit var carsOwnerFilterList: List<CarOwnerFilter>
+    private lateinit var genderFilterList: List<GenderFilter>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -32,21 +43,47 @@ class CarsFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        adapter = CarsListRVAdapter(carsList)
+        carsViewModel = CarsViewModel(requireContext(), filter)
+        setUpList()
+
+        /** CHANGE LIST FILTER */
+
+    }
+
+    private fun setUpList() {
+        when(filter) {
+            "cars" -> setUpCarsList()
+            "owners" -> setUpOwnersList()
+            "male" -> setUpGenderList()
+            "female" -> setUpGenderList()
+            else -> setUpCarsList()
+        }
+    }
+
+    private fun setUpCarsList() {
+        carFilterList = carsViewModel.carsList
+        carsAdapter = CarsListRVAdapter(carFilterList)
         val carsListRV = binding?.carsCarsListRv
-        carsListRV?.adapter = adapter
+        carsListRV?.adapter = carsAdapter
         carsListRV?.layoutManager = LinearLayoutManager(this.context)
         carsListRV?.setHasFixedSize(true)
     }
 
-    private val carsList = listOf<Car>(
-        Car(" Car Model: Tesla g6 \n Year: 2019 \n Colour: Purple \n Country: Japan",),
-        Car(" Car Model: Tesla g6 \n Year: 2019 \n Colour: Purple \n Country: Japan",),
-        Car(" Car Model: Tesla g6 \n Year: 2019 \n Colour: Purple \n Country: Japan",),
-        Car(" Car Model: Tesla g6 \n Year: 2019 \n Colour: Purple \n Country: Japan",),
-        Car(" Car Model: Tesla g6 \n Year: 2019 \n Colour: Purple \n Country: Japan",),
-        Car(" Car Model: Tesla g6 \n Year: 2019 \n Colour: Purple \n Country: Japan",),
-        Car(" Car Model: Tesla g6 \n Year: 2019 \n Colour: Purple \n Country: Japan",),
-        Car(" Car Model: Tesla g6 \n Year: 2019 \n Colour: Purple \n Country: Japan",),
-    )
+    private fun setUpOwnersList() {
+        carsOwnerFilterList = carsViewModel.ownersList
+        ownersAdapter = CarOwnersListRVAdapter(carsOwnerFilterList)
+        val carsListRV = binding?.carsCarsListRv
+        carsListRV?.adapter = ownersAdapter
+        carsListRV?.layoutManager = LinearLayoutManager(this.context)
+        carsListRV?.setHasFixedSize(true)
+    }
+
+    private fun setUpGenderList() {
+        genderFilterList = carsViewModel.genderList
+        genderAdapter = GenderListRVAdapter(genderFilterList)
+        val carsListRV = binding?.carsCarsListRv
+        carsListRV?.adapter = genderAdapter
+        carsListRV?.layoutManager = LinearLayoutManager(this.context)
+        carsListRV?.setHasFixedSize(true)
+    }
 }

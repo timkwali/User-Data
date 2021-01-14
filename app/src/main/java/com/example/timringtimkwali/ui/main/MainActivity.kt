@@ -1,10 +1,10 @@
-package com.example.timringtimkwali
+package com.example.timringtimkwali.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.core.view.GravityCompat
 import androidx.navigation.findNavController
+import com.example.timringtimkwali.R
 import com.example.timringtimkwali.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
 import dagger.hilt.android.AndroidEntryPoint
