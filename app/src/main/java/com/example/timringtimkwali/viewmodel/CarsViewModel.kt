@@ -37,6 +37,8 @@ class CarsViewModel(
         }
     }
 
+
+
     private fun getCarFilterList() {
         val list = mutableListOf<CarFilter>()
         for(index in fileList.indices){
