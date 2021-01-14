@@ -17,6 +17,7 @@ import com.example.timringtimkwali.adapters.OnItemClick
 import com.example.timringtimkwali.adapters.UsersListRVAdapter
 import com.example.timringtimkwali.databinding.FragmentUsersBinding
 import com.example.timringtimkwali.model.User
+import com.example.timringtimkwali.network.NetWorkLiveData
 import com.example.timringtimkwali.viewmodel.UsersViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -40,7 +41,19 @@ class UsersFragment : Fragment(), OnItemClick {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        getAllUsers()
+
+        /** MONITOR NETWORK AVAILABILITY */
+        val netWorkLiveData = NetWorkLiveData(requireContext())
+        netWorkLiveData.observe(viewLifecycleOwner, Observer {
+            if(it) {
+                binding?.usersNetworkTv?.visibility = View.INVISIBLE
+                binding?.usersProgressPb?.visibility = View.VISIBLE
+                getAllUsers()
+            } else {
+                binding?.usersProgressPb?.visibility = View.INVISIBLE
+                binding?.usersNetworkTv?.visibility = View.VISIBLE
+            }
+        })
     }
 
     override fun onDestroy() {
@@ -62,18 +75,29 @@ class UsersFragment : Fragment(), OnItemClick {
     }
 
     private fun getAllUsers() {
+        usersViewModel.result.observe(viewLifecycleOwner, Observer{
+            if(it == "Success") {
+                binding?.usersProgressPb?.visibility = View.INVISIBLE
+            } else {
+                binding?.usersProgressPb?.visibility = View.INVISIBLE
+                binding?.usersNetworkTv?.visibility = View.VISIBLE
+            }
+        })
+
         usersViewModel.allUsers.observe(viewLifecycleOwner, Observer {
             val list = mutableListOf<User>()
-            for(t in it) {
-                val date = t.createdAt.substring(5, 16)
-                list.add(User(t.id, t.avatar, t.fullName, date, t.gender, t.colors, t.countries))
+
+            for (t in it) {
+                Toast.makeText(this.context, t.toString(), Toast.LENGTH_SHORT).show()
+//                val date = t.createdAt.substring(5, 16)
+//                list.add(User(t.id, t.avatar, t.fullName, date, t.gender, t.colors, t.countries))
             }
-            allUsers = list
-            adapter = UsersListRVAdapter(allUsers, this)
-            val usersRecyclerView  = binding?.usersUsersListRv
-            usersRecyclerView?.adapter = adapter
-            usersRecyclerView?.layoutManager = GridLayoutManager(this.context, 2)
-            usersRecyclerView?.setHasFixedSize(true)
+//            allUsers = list
+//            adapter = UsersListRVAdapter(allUsers, this)
+//            val usersRecyclerView = binding?.usersUsersListRv
+//            usersRecyclerView?.adapter = adapter
+//            usersRecyclerView?.layoutManager = GridLayoutManager(this.context, 2)
+//            usersRecyclerView?.setHasFixedSize(true)
         })
     }
 }

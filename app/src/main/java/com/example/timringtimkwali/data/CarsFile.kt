@@ -30,7 +30,7 @@ class CarsFile @Inject constructor(
                 var num = 0
 
                 if(line == FIRST_LINE)  {
-                    while(num < 20 && line != null){
+                    while(num < 10 && line != null){
                         line = bufferedReader.readLine()
                         val array = line.split(",")
                         list.add(array)

@@ -26,4 +26,5 @@
     <string name="email">Email</string>
     <string name="bio">Bio:</string>
     <string name="email_">Email:</string>
+    <string name="check_network_connection">Check Network Your Connection</string>
 </resources>
