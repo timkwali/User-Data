@@ -70,7 +70,7 @@
         app:layout_constraintTop_toBottomOf="@id/owner_ownerValue_tv" />
 
     <TextView
-        android:id="@+id/cars_carColor_tv"
+        android:id="@+id/owner_gender_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/graphit_bold"
@@ -84,14 +84,14 @@
         app:layout_constraintTop_toBottomOf="@id/owner_carModel_tv"/>
 
     <TextView
-        android:id="@+id/cars_colorValue_tv"
+        android:id="@+id/gender_genderValue_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/graphit_regular"
         android:text="@string/value"
         android:textColor="@color/black"
         android:textSize="15sp"
-        app:layout_constraintStart_toEndOf="@+id/cars_carColor_tv"
+        app:layout_constraintStart_toEndOf="@+id/owner_gender_tv"
         app:layout_constraintTop_toBottomOf="@id/owner_modelValue_tv" />
 
     <TextView
@@ -101,12 +101,12 @@
         android:fontFamily="@font/graphit_bold"
         android:gravity="start|top"
         android:paddingEnd="5dp"
-        android:text="@string/email"
+        android:text="@string/email_"
         android:textAllCaps="true"
         android:textColor="@color/black"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cars_carColor_tv" />
+        app:layout_constraintTop_toBottomOf="@id/owner_gender_tv" />
 
     <TextView
         android:id="@+id/owner_emailValue_tv"
@@ -117,7 +117,7 @@
         android:textColor="@color/black"
         android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@id/owner_email_tv"
-        app:layout_constraintTop_toBottomOf="@+id/cars_colorValue_tv" />
+        app:layout_constraintTop_toBottomOf="@id/gender_genderValue_tv" />
 
     <TextView
         android:id="@+id/owner_jobTitle_tv"
@@ -158,12 +158,13 @@
 
     <TextView
         android:id="@+id/owner_bioValue_tv"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/graphit_regular"
         android:text="@string/value"
         android:textColor="@color/black"
         android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/owner_bio_tv"
         app:layout_constraintTop_toBottomOf="@+id/owner_jobValue_tv" />
 </androidx.constraintlayout.widget.ConstraintLayout>

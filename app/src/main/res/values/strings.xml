@@ -25,4 +25,5 @@
     <string name="job_title">Job Title:</string>
     <string name="email">Email</string>
     <string name="bio">Bio:</string>
+    <string name="email_">Email:</string>
 </resources>
