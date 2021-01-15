@@ -19,6 +19,7 @@ import com.example.timringtimkwali.databinding.FragmentUsersBinding
 import com.example.timringtimkwali.model.User
 import com.example.timringtimkwali.network.NetWorkLiveData
 import com.example.timringtimkwali.viewmodel.UsersViewModel
+import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -62,16 +63,28 @@ class UsersFragment : Fragment(), OnItemClick {
     }
 
     override fun onItemClick(item: User, position: Int) {
+
         val bundle = bundleOf(
             "id" to item.id,
             "avatar" to item.avatar,
             "fullName" to item.fullName,
             "createdAt" to item.createdAt,
             "gender" to item.gender,
-            "colors" to item.colors,
-            "countries" to item.countries
+            "colors" to item.colors?.let { listToString(it) },
+            "countries" to item.countries?.let { listToString(it) }
         )
         findNavController().navigate(R.id.userDetailsFragment, bundle)
+    }
+    private fun listToString(list: List<String>): String {
+        return if(list.isEmpty()) {
+            ""
+        } else {
+            val stringBuilder = StringBuilder()
+            for(item in list) {
+                stringBuilder.append("$item, ")
+            }
+            stringBuilder.substring(0, stringBuilder.length-2)
+        }
     }
 
     private fun getAllUsers() {
@@ -88,16 +101,15 @@ class UsersFragment : Fragment(), OnItemClick {
             val list = mutableListOf<User>()
 
             for (t in it) {
-                Toast.makeText(this.context, t.toString(), Toast.LENGTH_SHORT).show()
-//                val date = t.createdAt.substring(5, 16)
-//                list.add(User(t.id, t.avatar, t.fullName, date, t.gender, t.colors, t.countries))
+                list.add(User(t.id, t.avatar, t.fullName, t.createdAt, t.gender, t.colors, t.countries))
             }
-//            allUsers = list
-//            adapter = UsersListRVAdapter(allUsers, this)
-//            val usersRecyclerView = binding?.usersUsersListRv
-//            usersRecyclerView?.adapter = adapter
-//            usersRecyclerView?.layoutManager = GridLayoutManager(this.context, 2)
-//            usersRecyclerView?.setHasFixedSize(true)
+
+            allUsers = list
+            adapter = UsersListRVAdapter(allUsers, this)
+            val usersRecyclerView = binding?.usersUsersListRv
+            usersRecyclerView?.adapter = adapter
+            usersRecyclerView?.layoutManager = GridLayoutManager(this.context, 2)
+            usersRecyclerView?.setHasFixedSize(true)
         })
     }
 }

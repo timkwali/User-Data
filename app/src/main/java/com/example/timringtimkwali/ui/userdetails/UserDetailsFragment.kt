@@ -23,10 +23,8 @@ class UserDetailsFragment : Fragment() {
     private lateinit var fullName: String
     private lateinit var createdAt: String
     private lateinit var gender: String
-    private lateinit var colors: List<String>
-    private lateinit var countries: List<String>
-    private lateinit var colorsString: String
-    private lateinit var countriesString: String
+    private lateinit var colors: String
+    private lateinit var countries: String
 
 
     override fun onCreateView(
@@ -49,14 +47,10 @@ class UserDetailsFragment : Fragment() {
         fullName = arguments?.getString("fullName").toString()
         createdAt = arguments?.getString("createdAt").toString()
         gender = arguments?.getString("gender").toString().capitalize()
-//        colors = arguments?.getStringArray("colors")!!.toList()
-//        countries = arguments?.getStringArray("countries")!!.toList()
+        colors = arguments?.getString("colors")!!
+        countries = arguments?.getString("countries")!!
 
-//        Toast.makeText(this.context, colors.toString(), Toast.LENGTH_SHORT).show()
-
-        /** SET UP LISTS */
-//        colorsString = listToString(colors).toString()
-//        countriesString = listToString(countries).toString()
+//        Toast.makeText(this.context, list.toString(), Toast.LENGTH_SHORT).show()
 
         /** POPULATE UI */
         setUpUI()
@@ -77,19 +71,11 @@ class UserDetailsFragment : Fragment() {
             userDetailsUserFullNameTv.text = fullName
             userDetailsGenderTv.text = gender
             userDetailsDateCreatedTv.text = createdAt
-//            userDetailsColorsTv.text = colorsString
-//            userDetailsCountriesTv.text = countriesString
+            userDetailsColorsTv.text = colors
+            userDetailsCountriesTv.text = countries
             setUpImage(userDetailsAvatarIv, avatar)
             setUpImage(userDetailsMainBgIv, RANDOM_IMAGE_URL)
         }
-    }
-
-    private fun listToString(list: List<String>): java.lang.StringBuilder {
-        val stringBuilder = StringBuilder()
-        for(item in list) {
-            stringBuilder.append("$item, ")
-        }
-        return stringBuilder
     }
 
     private fun setUpImage(imageView: ImageView, uri: String){

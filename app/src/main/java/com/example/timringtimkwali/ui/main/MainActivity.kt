@@ -2,10 +2,15 @@ package com.example.timringtimkwali.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.GravityCompat
 import androidx.navigation.findNavController
 import com.example.timringtimkwali.R
 import com.example.timringtimkwali.databinding.ActivityMainBinding
+import com.example.timringtimkwali.network.NetWorkLiveData
+import com.example.timringtimkwali.utils.DownloadFile
+import com.example.timringtimkwali.utils.FILE_URL
 import com.google.android.material.navigation.NavigationView
 import dagger.hilt.android.AndroidEntryPoint
 

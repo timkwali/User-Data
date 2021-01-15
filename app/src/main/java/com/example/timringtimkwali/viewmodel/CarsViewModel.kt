@@ -2,7 +2,10 @@ package com.example.timringtimkwali.viewmodel
 
 import android.app.Activity
 import android.content.Context
+import android.os.Environment
+import android.widget.Toast
 import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.content.contentValuesOf
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,7 +13,9 @@ import com.example.timringtimkwali.data.CarsFile
 import com.example.timringtimkwali.model.CarFilter
 import com.example.timringtimkwali.model.CarOwnerFilter
 import com.example.timringtimkwali.model.GenderFilter
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.io.File
 
 class CarsViewModel(
         context: Context,
@@ -23,7 +28,7 @@ class CarsViewModel(
     lateinit var genderList: List<GenderFilter>
 
     init {
-        viewModelScope.launch {
+        viewModelScope.launch() {
             /** ALL LIST */
             fileList = CarsFile(context).getCarsFile()
 
@@ -36,8 +41,6 @@ class CarsViewModel(
             }
         }
     }
-
-
 
     private fun getCarFilterList() {
         val list = mutableListOf<CarFilter>()
