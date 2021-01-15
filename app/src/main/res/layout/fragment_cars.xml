@@ -46,6 +46,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cars_subheading_tv" />
 
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/cars_selected_filter_sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/graphit_regular"
+        android:popupTheme="@style/filter"
+        android:text="@string/applied_filter"
+        android:textColor="@color/orange"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cars_filters_tv" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cars_carsList_rv"
         android:layout_width="match_parent"
@@ -54,7 +66,33 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cars_filters_tv"
-        tools:listitem="@layout/cars_filter_template"/>
+        app:layout_constraintTop_toBottomOf="@id/cars_selected_filter_sp"
+        tools:listitem="@layout/cars_filter_template" />
+
+    <ProgressBar
+        android:id="@+id/cars_progress_pb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/orange"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/cars_downloading_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Downloading csv file..."
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/graphit_regular"
+        android:textSize="12sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cars_progress_pb" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

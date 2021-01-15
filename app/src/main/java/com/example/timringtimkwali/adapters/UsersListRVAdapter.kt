@@ -19,6 +19,7 @@ class UsersListRVAdapter(private var usersList: List<User>, var listener: OnItem
         fun bind(user: User, action: OnItemClick) {
             binding.apply {
 //                Picasso.get().load(user.avatar).into(userTemplateAvatarIv)
+                val date = user.createdAt?.substring(5, 16)
 
                 Glide.with(itemView)
                     .load(user.avatar)
@@ -28,7 +29,7 @@ class UsersListRVAdapter(private var usersList: List<User>, var listener: OnItem
                     .into(userTemplateAvatarIv)
 
                 userTemplateFullNameTv.text = user.fullName
-                userTemplateDateTv.text = user.createdAt
+                userTemplateDateTv.text = date
             }
 
             itemView.setOnClickListener {

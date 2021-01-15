@@ -26,4 +26,14 @@
     <string name="email">Email</string>
     <string name="bio">Bio:</string>
     <string name="email_">Email:</string>
+    <string name="check_network_connection">Check Your Network Connection</string>
+    <string name="applied_filter">Applied Filter</string>
+
+    //CAR LIST FILTER
+    <string-array name="filters">
+        <item>Car</item>
+        <item>Owner</item>
+        <item>Gender(Male)</item>
+        <item>Gender(Female)</item>
+    </string-array>
 </resources>
