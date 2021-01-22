@@ -64,6 +64,7 @@
         android:textSize="20sp"
         android:fontFamily="@font/graphit_regular"
         android:visibility="invisible"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

@@ -43,18 +43,7 @@ class UsersFragment : Fragment(), OnItemClick {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        /** MONITOR NETWORK AVAILABILITY */
-        val netWorkLiveData = NetWorkLiveData(requireContext())
-        netWorkLiveData.observe(viewLifecycleOwner, Observer {
-            if(it) {
-                binding?.usersNetworkTv?.visibility = View.INVISIBLE
-                binding?.usersProgressPb?.visibility = View.VISIBLE
-                getAllUsers()
-            } else {
-                binding?.usersProgressPb?.visibility = View.INVISIBLE
-                binding?.usersNetworkTv?.visibility = View.VISIBLE
-            }
-        })
+        checkNetworkAvailability()
     }
 
     override fun onDestroy() {
@@ -75,6 +64,26 @@ class UsersFragment : Fragment(), OnItemClick {
         )
         findNavController().navigate(R.id.userDetailsFragment, bundle)
     }
+
+    private fun checkNetworkAvailability() {
+        /** MONITOR NETWORK AVAILABILITY */
+        val netWorkLiveData = NetWorkLiveData(requireContext())
+        netWorkLiveData.observe(viewLifecycleOwner, Observer {
+            if(it) {
+                binding?.usersNetworkTv?.visibility = View.INVISIBLE
+                binding?.usersProgressPb?.visibility = View.VISIBLE
+                binding?.usersUsersListRv?.visibility = View.VISIBLE
+                getAllUsers()
+            } else {
+                binding?.apply {
+                    usersProgressPb?.visibility = View.INVISIBLE
+                    usersUsersListRv?.visibility = View.INVISIBLE
+                    usersNetworkTv?.visibility = View.VISIBLE
+                }
+            }
+        })
+    }
+
     private fun listToString(list: List<String>): String {
         return if(list.isEmpty()) {
             ""
@@ -99,11 +108,9 @@ class UsersFragment : Fragment(), OnItemClick {
 
         usersViewModel.allUsers.observe(viewLifecycleOwner, Observer {
             val list = mutableListOf<User>()
-
             for (t in it) {
                 list.add(User(t.id, t.avatar, t.fullName, t.createdAt, t.gender, t.colors, t.countries))
             }
-
             allUsers = list
             adapter = UsersListRVAdapter(allUsers, this)
             val usersRecyclerView = binding?.usersUsersListRv

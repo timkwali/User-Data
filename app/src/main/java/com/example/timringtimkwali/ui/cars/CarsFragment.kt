@@ -91,22 +91,12 @@ class CarsFragment : Fragment() {
 
     fun checkIfFileExists(file: File) {
         if(!file.exists()) {
-            Toast.makeText(context, "File not found!", Toast.LENGTH_SHORT).show()
-            binding?.carsProgressPb?.visibility = View.VISIBLE
-            binding?.carsDownloadingTv?.visibility = View.VISIBLE
-            binding?.carsSelectedFilterSp?.visibility = View.INVISIBLE
+            binding?.apply {
+                carsProgressPb?.visibility = View.VISIBLE
+                carsDownloadingTv?.visibility = View.VISIBLE
+                carsSelectedFilterSp?.visibility = View.INVISIBLE
+            }
             DownloadFile().downloadCsv(FILE_URL, requireContext())
-//            var fl = DownloadFile().readFile(requireContext())
-//            while(!fl.exists()) {
-//                if(file.exists()) {
-//                    binding?.carsProgressPb?.visibility = View.INVISIBLE
-//                    binding?.carsDownloadingTv?.visibility = View.INVISIBLE
-//                    binding?.carsSelectedFilterSp?.visibility = View.VISIBLE
-////                    setUpList()
-//                    Toast.makeText(requireContext(), "file downloaded", Toast.LENGTH_SHORT).show()
-//                }
-//                fl = DownloadFile().readFile(requireContext())
-//            }
         } else{
             binding?.carsProgressPb?.visibility = View.INVISIBLE
             binding?.carsDownloadingTv?.visibility = View.INVISIBLE
@@ -114,12 +104,7 @@ class CarsFragment : Fragment() {
             setUpList()
             /** HANDLE FILTER CHANGE */
             binding?.carsSelectedFilterSp!!.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-                override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
-                ) {
+                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                     setUpFilter()
                 }
 
