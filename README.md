@@ -1,4 +1,4 @@
-# Data App
+# User Data App
 
 ## What is this App about?
 The app is divided into two sections, with a hamburger at the top right corner that brings up a side navigation drawer that shows the two sections. They are:
